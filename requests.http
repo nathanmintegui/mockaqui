@@ -1,0 +1,8 @@
+# Exemplo 01 - Criar endpoint
+curl http://localhost:8080/mock/jsonplaceholder.typicode.com/foo -i
+
+# Exemplo 02 - Valores dinamicos
+curl http://localhost:8080/mock/jsonplaceholder.typicode.com/foo/1/bazz   -i   -w "\n\n--- Timing ---\nTotal: %{time_total}s\n"
+
+# Exemplos bonus
+curl http://localhost:8085/mock-api/users
