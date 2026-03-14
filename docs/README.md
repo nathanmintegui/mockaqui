@@ -1,24 +1,15 @@
-#  POC componente para Mock's
-
-> **Prova de conceito** de um componente genérico em **Java / Spring Boot**
-capaz de simular endpoints HTTP de forma dinâmica, sem necessidade de implementações
-específicas por rota. O serviço armazena as definições de endpoints em memória
-utilizando uma **Radix Tree**, garantindo roteamento eficiente mesmo com path
-params variáveis e baixíssimo tempo de resposta por chamada.
-
-![height:4in](./docs/showcase.png)
+---
+marp: true
+class: invert
+---
+# Demo & Q&A  - POC componente para Mock's
+## Versão Alpha 1.0
 
 By: Nathan Berger
 
----
+![height:4in](image.png)
 
-## Visão Geral
- 
-O **Mockaqui** permite que times de desenvolvimento registrem endpoints mockados
-via API e os consumam imediatamente, sem deploys adicionais.
-O roteamento é feito sobre uma Radix Tree, estrutura que mantém o custo de
-busca proporcional ao comprimento do path — e não ao número de rotas registradas
-— tornando o componente escalável para grandes volumes de endpoints.
+---
 
 # Objetivos e Desafios
 
@@ -37,8 +28,8 @@ busca proporcional ao comprimento do path — e não ao número de rotas registr
 ```
 ---
 ## Overall Design (Radix Tree)
-![bg left height:5in](./docs/image-5.png)
-![height:4in](./docs/image-1.png)
+![bg left height:5in](image-5.png)
+![height:4in](image-1.png)
 
 ---
 # Routing
@@ -56,6 +47,8 @@ public class EndpointController {
     }
 }
 ```
+
+---
 
 # Routing
 Rota exclusiva para API
@@ -76,26 +69,10 @@ public class ApiController {
 
 ---
 
-### Exemplo de uso rápido
- 
-```bash
-# 1. Registrar um endpoint mockado
-curl -X POST http://localhost:8080/api/endpoints \
-  -H "Content-Type: application/json" \
-  -d '{
-    "path": "/users/{id}",
-    "method": "GET",
-    "statusCode": 200,
-    "response": { "id": 1, "name": "John Doe" }
-  }'
- 
-# 2. Consumir o mock
-curl http://localhost:8080/mock/users/42
-# → { "id": 1, "name": "John Doe" }
-```
+# Demo
+![height:5in](image-3.png)
 
 ---
-
 # Conclusão
 ## Backlog
 * Faker para respostas diferentes
@@ -105,4 +82,3 @@ curl http://localhost:8080/mock/users/42
 ## Potenciais Problemas
 * Alto uso de memória Heap
 * Sincronização de dados em memória para mais de um POD up
-

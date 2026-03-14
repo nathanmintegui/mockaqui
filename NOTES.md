@@ -1,4 +1,0 @@
-# Checklist funcionalidades para teste
-
-[] 
-
