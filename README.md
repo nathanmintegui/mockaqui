@@ -20,6 +20,16 @@ O roteamento é feito sobre uma Radix Tree, estrutura que mantém o custo de
 busca proporcional ao comprimento do path — e não ao número de rotas registradas
 — tornando o componente escalável para grandes volumes de endpoints.
 
+### Motivações da Solução
+Durante o ciclo de desenvolvimento é comum enfrentar bloqueios entre times
+quando um componente ainda não possui determinado endpoint implementado ou depende
+da resposta de outra equipe. O Mockaqui resolve esse problema permitindo que o
+desenvolvimento avance em paralelo, sem dependências externas. Durante a homologação,
+a ferramenta também se mostra especialmente útil: o QA ganha liberdade para
+manipular as respostas e validar todos os cenários possíveis sem depender de
+estados específicos do backend. Por fim, em integrações com sistemas de terceiros,
+facilita a replicação de respostas em ambientes locais, agilizando o processo de debug.
+
 # Objetivos e Desafios
 
 * Verificar viabilidade de construção de componente genérico que pudesse atender à variedade de endpoints
