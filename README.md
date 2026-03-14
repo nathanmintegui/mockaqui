@@ -30,6 +30,28 @@ manipular as respostas e validar todos os cenários possíveis sem depender de
 estados específicos do backend. Por fim, em integrações com sistemas de terceiros,
 facilita a replicação de respostas em ambientes locais, agilizando o processo de debug.
 
+## Consideracoes
+
+#### Produtividade
+
+- Estimativa de tempo economizado por sprint — quantas horas o time perde hoje esperando endpoints prontos? Mesmo um número aproximado ("~X horas/sprint por dev") tem impacto visual grande.
+- Redução de retrabalho em homologação — menos ciclos de correção quando o QA consegue testar todos os cenários antes do deploy.
+
+#### Segurança e controle
+
+- Por rodar localmente/internamente, dados sensíveis de payloads não saem para serviços externos.
+
+#### Facilidade de adoção
+
+- Curva de aprendizado baixa — qualquer dev ou QA consegue registrar um mock via interface web ou Postman sem conhecer o código.
+- Não exige mudança de processo, encaixa no fluxo atual.
+
+#### Riscos mitigados
+
+- Ambientes de staging com APIs de terceiros instáveis ou com cota de requisições — o mock elimina esse risco durante o desenvolvimento.
+
+---
+
 # Objetivos e Desafios
 
 * Verificar viabilidade de construção de componente genérico que pudesse atender à variedade de endpoints
